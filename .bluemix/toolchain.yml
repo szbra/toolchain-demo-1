@@ -11,6 +11,7 @@ repo:
     repo_url: "https://elo.com"
     type: clone
     has_issues: false
+  hidden: [form, description]
 
 # Pipelines
 build:
@@ -28,6 +29,7 @@ build:
         REGION_ID: "region"
       execute: true
     services: ["repo"]
+  hidden: [form, description]
 
 #Web IDE
 webide:
