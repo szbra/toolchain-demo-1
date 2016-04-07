@@ -7,7 +7,7 @@ version: 0.2
 repo:
   service_id: github
   parameters:
-    repo_name: "{{name}}"
+    repo_name: "{{github.parameters.repo_name}}"
     repo_url: "https://github.com/szbra/toolchain-demo-1"
     type: clone
     has_issues: false
@@ -23,7 +23,7 @@ build:
       content: $file(pipeline.yml)
       env:
         REPO: "repo"
-        CF_APP_NAME: "{{name}}"
+        CF_APP_NAME: "{{deploy.parameters.app-name}}"
         SPACE_NAME: {{deploy.parameters.space}}
         ORG_NAME: {{deploy.parameters.organization}}
         REGION_ID: {{deploy.parameters.region}}
@@ -43,7 +43,7 @@ deploy:
     region: "ibm:yp:us-south"
     organization: "{{organization}}"
     space: "dev"
-    name: "{{repo.parameters.repo_name}}"
+    app-name: "{{repo.parameters.repo_name}}"
   
 #Github
 github:
