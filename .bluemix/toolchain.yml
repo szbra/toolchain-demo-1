@@ -42,7 +42,7 @@ deploy:
   parameters:
     region: "ibm:yp:us-south"
     organization: "{{organization}}"
-    space: {{space}}
+    space: "{{space}}"
     name: "{{repo.parameters.repo_name}}"
   
 #Github
