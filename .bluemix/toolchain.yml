@@ -24,9 +24,9 @@ build:
       env:
         REPO: "repo"
         CF_APP_NAME: "{{name}}"
-        SPACE_NAME: "someSpace"
-        ORG_NAME: "someOrg"
-        REGION_ID: "region"
+        SPACE_NAME: {{deploy.parameters.space}}
+        ORG_NAME: {{deploy.parameters.organization}}
+        REGION_ID: {{deploy.parameters.region}}
       execute: true
     services: ["repo"]
   hidden: [form]
@@ -34,6 +34,16 @@ build:
 #Web IDE
 webide:
   service_id: orion
+  
+#Deployment
+deploy:
+  schema: deploy.json
+  service-category: pipeline
+  parameters:
+    region: "ibm:yp:us-south"
+    organization: "{{organization}}"
+    space: {{space}}
+    name: "{{repo.parameters.repo_name}}"
   
 #Github
 github:

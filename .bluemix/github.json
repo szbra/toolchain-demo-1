@@ -37,7 +37,8 @@
             },
             {
               "type": "text",
-              "key": "repo_url"
+              "key": "repo_url",
+              "readonly": false
             },
             {
               "type": "icon",
